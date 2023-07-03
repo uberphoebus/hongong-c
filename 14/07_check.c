@@ -13,21 +13,18 @@ int main(void) {
 
     int num = 1;
     for (int i = 0; i < 4; i++) {
-        int total = 0;
         for (int j = 0; j < 5; j++) {
             ary[i][j] = num;
-            total += num;
             num++;
         }
-        ary[i][5] = total;
     }
 
-    for (int j = 0; j < 6; j++) {
-        int total = 0;
-        for (int i = 0; i < 4; i++) {
-            total += ary[i][j];
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 5; j++) {
+            ary[4][j] += ary[i][j];
+            ary[i][5] += ary[i][j];
+            ary[4][5] += ary[i][j];
         }
-        ary[4][j] = total;
     }
 
     for (int i = 0; i < 5; i++) {
